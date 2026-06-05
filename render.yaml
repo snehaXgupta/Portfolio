@@ -3,4 +3,4 @@ services:
     name: sneha-portfolio
     runtime: static
     buildCommand: ''
-    publishPath: '.'
+    staticPublishPath: '.'
