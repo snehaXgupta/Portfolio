@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automated Class Schedule Generator | Sneha Gupta Portfolio</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .project-doc-container {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 40px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 30px;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition-fast);
+    }
+    .back-btn:hover {
+      color: var(--text-primary);
+      transform: translateX(-4px);
+    }
+    .doc-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 15px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .doc-meta {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 30px;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+    .doc-body {
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      font-size: 1rem;
+    }
+    .doc-body h3 {
+      color: var(--text-primary);
+      margin-top: 10px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .doc-body ul {
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .doc-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="project-doc-container">
+    <a href="index.html#projects" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+    
+    <h1 class="doc-title">Automated Class Schedule Generator (ACSG)</h1>
+    
+    <div class="doc-meta">
+      <span><i class="fa-solid fa-code"></i> TypeScript & JS</span>
+      <span>● DEPLOYED</span>
+    </div>
+    
+    <div class="doc-body">
+      <p>The **Automated Class Schedule Generator** is a responsive, web-based algorithmic scheduler designed to compile collision-free class sheets for academic institutions based on specific parameters such as tutor availability, lecture durations, student groups, and room allocations.</p>
+      
+      <h3>🎯 Key Features</h3>
+      <ul>
+        <li>**Conflict Checker Algorithm**: Real-time checking logic preventing student, tutor, or classroom double-bookings.</li>
+        <li>**Load Balancing**: Allocates teacher hours evenly across week plans to prevent staff over-scheduling.</li>
+        <li>**Interactive HTML Timetable Grid**: Instantly plots schedules in a custom CSS Grid template rendering responsive, high-contrast visual timetables.</li>
+        <li>**Dynamic Configurations**: Allows editing student groups, classes, subjects, and room capacities directly in-browser.</li>
+      </ul>
+      
+      <h3>🛠️ Tech Stack & Architecture</h3>
+      <p>Built as a zero-dependency frontend application prioritizing client-side efficiency, speed, and algorithmic correctness:</p>
+      <ul>
+        <li>**TypeScript**: Core algorithmic data structures and scheduler engines.</li>
+        <li>**HTML5 & CSS Grid**: Render elements displaying final schedules.</li>
+        <li>**Local Storage**: Persists timetables across browser tabs.</li>
+      </ul>
+      
+      <div class="doc-actions">
+        <a href="https://github.com/snehaXgupta/Automated-Class-Schedule-Generator" target="_blank" class="btn-primary">
+          <i class="fa-brands fa-github"></i> Source Code
+        </a>
+        <a href="https://snehaXgupta.github.io/Automated-Class-Schedule-Generator/" target="_blank" class="btn-secondary">
+          Launch App <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

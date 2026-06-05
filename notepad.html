@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notepad Web Sandbox | Sneha Gupta Portfolio</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .notepad-sandbox-container {
+      max-width: 900px;
+      margin: 40px auto 60px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      min-height: 540px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition-fast);
+    }
+    .back-btn:hover {
+      color: var(--text-primary);
+      transform: translateX(-4px);
+    }
+    .notepad-sidebar {
+      border-right: 1px solid var(--border-color);
+      padding-right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .notepad-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+      max-height: 380px;
+      padding-right: 5px;
+    }
+    .note-item {
+      padding: 12px;
+      border-radius: 8px;
+      background: #f4f4f5;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      position: relative;
+    }
+    .note-item:hover, .note-item.active {
+      background: #ffffff;
+      border-color: var(--text-primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .note-item-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 4px;
+      padding-right: 20px;
+    }
+    .note-item-date {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+    }
+    .notepad-main {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .notepad-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .notepad-textarea {
+      width: 100%;
+      flex-grow: 1;
+      height: 320px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      resize: none;
+      outline: none;
+      transition: var(--transition-fast);
+    }
+    .notepad-textarea:focus {
+      border-color: var(--text-primary);
+      box-shadow: 0 0 0 2px rgba(9, 9, 11, 0.05);
+    }
+    .notepad-input-title {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-primary);
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      padding: 6px 0;
+      outline: none;
+      width: 100%;
+      transition: border var(--transition-fast);
+    }
+    .notepad-input-title:focus {
+      border-color: var(--text-primary);
+    }
+    .note-delete-btn {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity var(--transition-fast), color var(--transition-fast);
+    }
+    .note-item:hover .note-delete-btn {
+      opacity: 1;
+    }
+    .note-delete-btn:hover {
+      color: #ef4444;
+    }
+    .btn-icon-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      background: #ffffff;
+      color: var(--text-primary);
+      transition: var(--transition-fast);
+    }
+    .btn-icon-label:hover {
+      background: var(--text-primary);
+      color: #ffffff;
+      border-color: var(--text-primary);
+    }
+  </style>
+</head>
+<body>
+  
+  <div style="max-width: 900px; margin: 40px auto 0 auto; padding: 0 30px;">
+    <a href="index.html#projects" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+  </div>
+
+  <div class="notepad-sandbox-container">
+    
+    <!-- Sidebar: Notes List -->
+    <div class="notepad-sidebar">
+      <h3 style="font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 8px; font-weight:700;">Saved Notes</h3>
+      <button class="btn-icon-label" id="new-note-btn" style="width: 100%; justify-content: center;">
+        <i class="fa-solid fa-plus"></i> New Note
+      </button>
+      <ul class="notepad-list" id="notepad-list">
+        <!-- Rendered JS items here -->
+      </ul>
+    </div>
+    
+    <!-- Main Panel: Editor -->
+    <div class="notepad-main">
+      <div class="notepad-toolbar">
+        <input type="text" id="note-title-input" class="notepad-input-title" placeholder="Untitled Note">
+      </div>
+      <textarea id="note-text-input" class="notepad-textarea" placeholder="Start typing code snippets or creative thoughts..."></textarea>
+      
+      <div class="notepad-toolbar" style="justify-content: flex-end; margin-top: 10px;">
+        <button class="btn-icon-label" id="save-note-btn">
+          <i class="fa-solid fa-floppy-disk"></i> Save Note
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let notes = JSON.parse(localStorage.getItem('sneha_portfolio_notes')) || [
+        { id: 1, title: 'Welcome to Sandbox', content: 'This is a fully functioning Notepad Web Sandbox built directly into my portfolio using HTML5 LocalStorage!\n\nYou can:\n1. Click "New Note" to draft thoughts.\n2. Write text or code snippets.\n3. Click "Save Note" to save to your local browser storage.\n4. Hover over list items and click the trash icon to delete.', date: new Date().toLocaleDateString() }
+      ];
+      
+      let activeNoteId = notes[0] ? notes[0].id : null;
+      
+      const listEl = document.getElementById('notepad-list');
+      const titleInput = document.getElementById('note-title-input');
+      const contentInput = document.getElementById('note-text-input');
+      const newBtn = document.getElementById('new-note-btn');
+      const saveBtn = document.getElementById('save-note-btn');
+      
+      function renderList() {
+        listEl.innerHTML = '';
+        notes.forEach(note => {
+          const item = document.createElement('li');
+          item.className = `note-item ${note.id === activeNoteId ? 'active' : ''}`;
+          item.onclick = () => selectNote(note.id);
+          
+          const title = document.createElement('div');
+          title.className = 'note-item-title';
+          title.textContent = note.title || 'Untitled Note';
+          
+          const date = document.createElement('div');
+          date.className = 'note-item-date';
+          date.textContent = note.date;
+          
+          const delBtn = document.createElement('button');
+          delBtn.className = 'note-delete-btn';
+          delBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
+          delBtn.onclick = (e) => {
+            e.stopPropagation();
+            deleteNote(note.id);
+          };
+          
+          item.appendChild(title);
+          item.appendChild(date);
+          item.appendChild(delBtn);
+          listEl.appendChild(item);
+        });
+      }
+      
+      function selectNote(id) {
+        activeNoteId = id;
+        const note = notes.find(n => n.id === id);
+        if (note) {
+          titleInput.value = note.title;
+          contentInput.value = note.content;
+        } else {
+          titleInput.value = '';
+          contentInput.value = '';
+        }
+        renderList();
+      }
+      
+      function deleteNote(id) {
+        notes = notes.filter(n => n.id !== id);
+        localStorage.setItem('sneha_portfolio_notes', JSON.stringify(notes));
+        if (activeNoteId === id) {
+          activeNoteId = notes[0] ? notes[0].id : null;
+        }
+        selectNote(activeNoteId);
+      }
+      
+      newBtn.onclick = () => {
+        const newId = Date.now();
+        const newNote = {
+          id: newId,
+          title: '',
+          content: '',
+          date: new Date().toLocaleDateString()
+        };
+        notes.unshift(newNote);
+        activeNoteId = newId;
+        selectNote(newId);
+      };
+      
+      saveBtn.onclick = () => {
+        const noteIndex = notes.findIndex(n => n.id === activeNoteId);
+        if (noteIndex !== -1) {
+          notes[noteIndex].title = titleInput.value.trim() || 'Untitled Note';
+          notes[noteIndex].content = contentInput.value;
+          notes[noteIndex].date = new Date().toLocaleDateString();
+          localStorage.setItem('sneha_portfolio_notes', JSON.stringify(notes));
+          renderList();
+          alert('Note saved to LocalStorage!');
+        } else {
+          alert('Create or select a note first!');
+        }
+      };
+      
+      // Initial Load
+      selectNote(activeNoteId);
+    });
+  </script>
+</body>
+</html>

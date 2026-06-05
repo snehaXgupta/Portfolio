@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adhway Prahari | Sneha Gupta Portfolio</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .project-doc-container {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 40px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 30px;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition-fast);
+    }
+    .back-btn:hover {
+      color: var(--text-primary);
+      transform: translateX(-4px);
+    }
+    .doc-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 15px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .doc-meta {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 30px;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+    .doc-body {
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      font-size: 1rem;
+    }
+    .doc-body h3 {
+      color: var(--text-primary);
+      margin-top: 10px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .doc-body ul {
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .doc-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="project-doc-container">
+    <a href="index.html#projects" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+    
+    <h1 class="doc-title">Adhway Prahari (Road & Journey Sentinel)</h1>
+    
+    <div class="doc-meta">
+      <span><i class="fa-solid fa-code"></i> PHP-Laravel & Leaflet</span>
+      <span>● DEPLOYED</span>
+    </div>
+    
+    <div class="doc-body">
+      <p>**Adhway Prahari** (literally translating to *Journey Sentinel* in Sanskrit/Hindi) is a real-time transit-tracking and safety system. It logs device coordinate streams, verifies journey path safety against pre-configured routes, and displays live analytics in a visual control panel dashboard.</p>
+      
+      <h3>🎯 Key Features</h3>
+      <ul>
+        <li>**Real-Time Coordinates Logging**: Receives spatial telemetry data over secure channels, tracking vehicle coordinates continuously.</li>
+        <li>**Interactive Mapping Engine**: Renders maps dashboards utilizing Leaflet JS integration, tracing journey paths dynamically.</li>
+        <li>**Safety Alerts & Notifications**: Automates checks to flag when a tracked device deviates from its planned safety corridor.</li>
+        <li>**Relational Data Analytics**: Implements MySQL schemas to index coordinates history, driver data, and security events.</li>
+      </ul>
+      
+      <h3>🛠️ Tech Stack & Architecture</h3>
+      <p>A secure full-stack architecture built to manage real-time coordinates streams efficiently:</p>
+      <ul>
+        <li>**Backend Framework**: PHP (Laravel) with robust API routing and controller logic.</li>
+        <li>**Frontend View Engine**: Blade templates with Vanilla JS and CSS layouts.</li>
+        <li>**Geospatial Tracking**: Leaflet JS map APIs for location-based rendering.</li>
+        <li>**Storage**: Relational MySQL Database with indexing on coordinates logs.</li>
+      </ul>
+      
+      <div class="doc-actions">
+        <a href="https://github.com/snehaXgupta/adhway-prahari" target="_blank" class="btn-primary">
+          <i class="fa-brands fa-github"></i> Source Code
+        </a>
+        <a href="https://adhway-prahari.herokuapp.com" target="_blank" class="btn-secondary">
+          Launch App <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
