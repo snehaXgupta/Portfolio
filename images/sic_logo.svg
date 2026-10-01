@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071738"/>
+      <stop offset="50%" stop-color="#0d347f"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="glowPill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background with subtle border -->
+  <rect width="200" height="200" rx="36" fill="url(#sicGrad)"/>
+  <rect x="1.5" y="1.5" width="197" height="197" rx="34.5" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="3"/>
+  
+  <!-- Subtle circuit lines matching SIC theme -->
+  <path d="M 24,45 H 55 L 75,65" stroke="#38bdf8" stroke-width="2.5" stroke-opacity="0.35" fill="none" stroke-linecap="round"/>
+  <circle cx="75" cy="65" r="3.5" fill="#38bdf8" fill-opacity="0.6"/>
+  <path d="M 176,155 H 145 L 125,135" stroke="#60a5fa" stroke-width="2.5" stroke-opacity="0.35" fill="none" stroke-linecap="round"/>
+  <circle cx="125" cy="135" r="3.5" fill="#60a5fa" fill-opacity="0.6"/>
+  
+  <!-- Brand Wordmark -->
+  <text x="100" y="66" font-family="'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-0.3">Samsung</text>
+  <text x="100" y="95" font-family="'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="-0.3">Innovation</text>
+  <text x="100" y="123" font-family="'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="-0.3">Campus</text>
+  
+  <!-- SIC Pill Badge -->
+  <rect x="66" y="142" width="68" height="26" rx="13" fill="url(#glowPill)"/>
+  <text x="100" y="159.5" font-family="'JetBrains Mono', 'Plus Jakarta Sans', sans-serif" font-size="12.5" font-weight="800" fill="#071738" text-anchor="middle" letter-spacing="1.5">SIC</text>
+</svg>
