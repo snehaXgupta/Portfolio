@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Integrated automated web scraping crawlers (BeautifulSoup) for live product review retrieval and evaluation.',
         'Built a clean Flask REST API backed by MySQL for persistent logging and verification telemetry.'
       ],
-      github: 'https://github.com/snehaXgupta/authentix'
+      github: 'https://github.com/snehaXgupta/FraudLens'
     },
     'manager-agent': {
       title: 'Manager Agent | AI Workforce & Analytics Suite',
@@ -26,9 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
         'Engineered an end-to-end Laravel application covering requirements analysis, relational schema design, and modular MVC architecture.',
         'Integrated local Ollama inference with Llama 3.1 for intelligent workforce reporting and automated summary generation.',
         'Migrated core application schema to Oracle Database and developed custom PL/SQL stored procedures and triggers for optimized reporting logic.',
-        'Implemented responsive AJAX/jQuery UI components for real-time workload monitoring without page refreshes.'
+        'Implemented responsive AJAX/jQuery UI components for real-time workload monitoring without page refreshes.',
+        'Deployed live production instance on Render cloud platform for real-time access and testing.'
       ],
-      github: 'https://github.com/snehaXgupta'
+      github: 'https://github.com/snehaXgupta/manager-agent',
+      live: 'https://manager-agent-gedj.onrender.com/'
     },
     'prahari': {
       title: 'Prahari | Secure Transit & Inventory Sentinel',
@@ -42,11 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
         'Connected transactional SMS notification gateways for instant delivery alerts and incident notifications.',
         'Optimized backend SQL queries and indexing, significantly reducing response latency under multi-tenant load.'
       ],
-      github: 'https://github.com/snehaXgupta/adhway-prahari'
+      github: 'https://github.com/snehaXgupta/prahari-01'
     },
     'anantadrive': {
-      title: 'AnantaDrive | Web Hosting & Cloud Platform',
-      category: 'Cloud Services & Payment Gateway',
+      title: 'AnantaDrive | Web Hosting & Cloud Services Platform',
+      category: 'Cloud Services & Payments Infrastructure',
       icon: 'fa-solid fa-cloud',
       desc: 'Contributed to AnantaDrive at Codevirus Security, developing responsive user experiences and cloud resource provisioning dashboards. Integrated automated checkout systems with Razorpay and streamlined API communication.',
       stack: ['React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'Razorpay API', 'RESTful Services', 'JavaScript'],
@@ -56,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Improved data load times and frontend rendering speed by 18% through optimized API payloads and caching.',
         'Constructed reusable component hierarchies adhering to modern design tokens and UI accessibility standards.'
       ],
-      github: 'https://github.com/snehaXgupta'
+      github: null
     },
     'bookwise': {
       title: 'BookWise | Digital Catalog & Recommendation Portal',
@@ -99,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalStack = document.getElementById('modal-stack');
   const modalHighlights = document.getElementById('modal-highlights');
   const modalGithubLink = document.getElementById('modal-github-link');
+  const modalLiveLink = document.getElementById('modal-live-link');
 
   function openProjectModal(projectId) {
     const project = projectsData[projectId];
@@ -127,8 +130,25 @@ document.addEventListener('DOMContentLoaded', () => {
       modalHighlights.appendChild(li);
     });
 
-    // Populate GitHub Link
-    modalGithubLink.href = project.github;
+    // Populate GitHub Link if available
+    if (modalGithubLink) {
+      if (project.github) {
+        modalGithubLink.href = project.github;
+        modalGithubLink.style.display = 'inline-flex';
+      } else {
+        modalGithubLink.style.display = 'none';
+      }
+    }
+
+    // Populate Live Link if available
+    if (modalLiveLink) {
+      if (project.live) {
+        modalLiveLink.href = project.live;
+        modalLiveLink.style.display = 'inline-flex';
+      } else {
+        modalLiveLink.style.display = 'none';
+      }
+    }
 
     // Open Modal
     modalBackdrop.classList.add('open');
@@ -148,8 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectId = card.getAttribute('data-project-id');
     
     card.addEventListener('click', (e) => {
-      // If user clicked directly on the git link button, let the link open normally
-      if (e.target.closest('.git-btn')) return;
+      // If user clicked directly on git or live link buttons, let the link open normally
+      if (e.target.closest('.git-btn') || e.target.closest('.live-btn')) return;
       openProjectModal(projectId);
     });
 
@@ -224,98 +244,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
-  // 3. Interactive Terminal Typing Simulation
-  const terminalLines = [
-    { type: 'cmd', text: 'sneha --profile --education' },
-    { type: 'output', text: '{\n  "name": "Sneha Gupta",\n  "degree": "B.Tech Computer Science (2022-2026)",\n  "institution": "University of Lucknow",\n  "cgpa": "8.4 / 10.0",\n  "roles": ["Full Stack Developer", "AI Engineer", "AWS Cloud Captain"]\n}' },
-    { type: 'cmd', text: 'sneha --skills --verified' },
-    { type: 'output', text: '⚡ Backend: Laravel, Spring Boot, Node.js, Express, Flask\n🤖 AI & ML: NLP, Scikit-learn, Ollama (Llama 3.1)\n☁️ Cloud & Tools: AWS Certified Practitioner, Docker, Terraform\n🗄️ Databases: MySQL, PostgreSQL, Oracle DB, DynamoDB' },
-    { type: 'cmd', text: 'sneha --status' },
-    { type: 'output', text: '🚀 SDE Intern at Simpel Techlabs | Actively exploring full-stack & AI opportunities' },
-    { type: 'cmd', text: 'clear' }
-  ];
-
-  const terminalBody = document.getElementById('terminal-body');
-  if (terminalBody) {
-    terminalBody.innerHTML = '';
-    runTerminalSimulation();
-  }
-
-  async function runTerminalSimulation() {
-    let index = 0;
-    while (index < terminalLines.length) {
-      const line = terminalLines[index];
-      
-      if (line.text === 'clear') {
-        await sleep(2500);
-        terminalBody.innerHTML = '';
-        index = 0; // Loop forever
-        continue;
-      }
-      
-      const lineEl = document.createElement('div');
-      lineEl.className = 'terminal-line';
-      
-      if (line.type === 'cmd') {
-        const promptEl = document.createElement('span');
-        promptEl.className = 'prompt';
-        promptEl.textContent = 'sneha@developer:~$ ';
-        lineEl.appendChild(promptEl);
-        
-        const cmdTextEl = document.createElement('span');
-        cmdTextEl.className = 'cmd';
-        lineEl.appendChild(cmdTextEl);
-        
-        terminalBody.appendChild(lineEl);
-        await typeText(cmdTextEl, line.text);
-      } else if (line.type === 'output') {
-        const outputEl = document.createElement('pre');
-        outputEl.className = 'terminal-output';
-        outputEl.style.whiteSpace = 'pre-wrap';
-        outputEl.style.fontFamily = 'inherit';
-        lineEl.appendChild(outputEl);
-        
-        terminalBody.appendChild(lineEl);
-        
-        const outputLines = line.text.split('\n');
-        for (let oLine of outputLines) {
-          outputEl.textContent += oLine + '\n';
-          await sleep(100);
-        }
-      }
-      
-      terminalBody.scrollTop = terminalBody.scrollHeight;
-      await sleep(1200);
-      index++;
-    }
-  }
-
-  function typeText(element, text) {
-    return new Promise((resolve) => {
-      let charIndex = 0;
-      const cursor = document.createElement('span');
-      cursor.className = 'terminal-cursor';
-      element.parentNode.appendChild(cursor);
-      
-      const interval = setInterval(() => {
-        if (charIndex < text.length) {
-          element.textContent += text.charAt(charIndex);
-          charIndex++;
-        } else {
-          clearInterval(interval);
-          cursor.remove();
-          resolve();
-        }
-      }, 50);
-    });
-  }
-
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
-
   // 4. Scroll Reveal Effect (Intersection Observer)
   const revealElements = document.querySelectorAll('.reveal-el');
   const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -359,6 +287,19 @@ document.addEventListener('DOMContentLoaded', () => {
           navToggle.innerHTML = '&#9776;';
         }
       });
+    });
+  }
+
+  // 6. Simpel Experience Card Minimal Arrow Toggle
+  const simpelToggleBtn = document.getElementById('simpel-toggle-btn');
+  const simpelMoreContent = document.getElementById('simpel-more-content');
+
+  if (simpelToggleBtn && simpelMoreContent) {
+    simpelToggleBtn.addEventListener('click', () => {
+      const isExpanded = simpelMoreContent.classList.toggle('expanded');
+      simpelToggleBtn.classList.toggle('expanded', isExpanded);
+      simpelToggleBtn.setAttribute('aria-expanded', isExpanded);
+      simpelToggleBtn.setAttribute('title', isExpanded ? 'Show less' : 'View more details');
     });
   }
 

@@ -646,6 +646,61 @@ section {
   line-height: 1;
 }
 
+/* Collapsible Timeline More Section */
+.timeline-more-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.timeline-more-collapse.expanded {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Minimal Arrow Button in the Right Bottom Corner */
+.timeline-arrow-btn {
+  position: absolute;
+  bottom: 14px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.22);
+  color: var(--accent-lavender-dark);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.06);
+  z-index: 2;
+}
+
+.timeline-arrow-btn:hover {
+  background: var(--accent-lavender);
+  color: #ffffff;
+  border-color: var(--accent-lavender);
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35);
+  transform: scale(1.12);
+}
+
+.timeline-arrow-btn:hover .toggle-icon {
+  color: #ffffff;
+}
+
+.timeline-arrow-btn .toggle-icon {
+  font-size: 0.78rem;
+  color: var(--accent-lavender);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-arrow-btn.expanded .toggle-icon {
+  transform: rotate(180deg);
+}
+
 /* Bento Grid System for Skills (Glassmorphic) */
 .skills-grid {
   display: grid;

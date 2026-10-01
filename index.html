@@ -58,7 +58,7 @@
       <h1 class="hero-title">Hi, I'm Sneha Gupta</h1>
       <p class="hero-subtitle">Software Developer &bull; Full Stack &bull; AI Explorer</p>
       <p class="hero-desc">I'm a software developer who loves building thoughtful web applications, exploring practical
-        AI integrations, and crafting clean user experiences. Curious by nature, driven by innovation and always eager
+        AI integrations and crafting clean user experiences. Curious by nature, driven by innovation and always eager
         to learn and build things that create real value.</p>
 
       <!-- Quick Info Pills -->
@@ -92,27 +92,12 @@
             <p>I am a software engineer dedicated to building resilient full-stack applications and AI-driven platforms.
               My background spans building production web systems at <strong>Simpel Techlabs</strong> and
               <strong>Codevirus Security</strong>, developing machine learning models for automated fraud detection, and
-              leading cloud enablement as an <strong>AWS Cloud Captain</strong> at the University of Lucknow.</p>
+              leading cloud enablement as an <strong>AWS Cloud Captain</strong> at the University of Lucknow.
+            </p>
             <br>
             <p>Whether it is implementing role-based access control in Laravel, creating modern frontends with React and
               Next.js, integrating local LLM inference engines (Ollama & Llama 3.1), or optimizing relational databases
               with PL/SQL triggers, I focus on clean code, testability, and high-performance user experiences.</p>
-          </div>
-
-          <div class="about-quote-box" style="margin-top: 10px;">
-            <div class="terminal-container">
-              <div class="terminal-header">
-                <div class="terminal-dots">
-                  <span class="dot-red"></span>
-                  <span class="dot-yellow"></span>
-                  <span class="dot-green"></span>
-                </div>
-                <div class="terminal-title">sneha@developer:~</div>
-              </div>
-              <div class="terminal-body" id="terminal-body">
-                <!-- Dynamic typing simulation powered by main.js -->
-              </div>
-            </div>
           </div>
         </div>
 
@@ -137,7 +122,7 @@
         <h3 class="journey-group-title"><i class="fa-solid fa-briefcase"></i> Work Experience</h3>
         <div class="journey-grid">
 
-          <div class="timeline-card">
+          <div class="timeline-card" id="simpel-experience-card">
             <div class="timeline-badge">Present</div>
             <div class="timeline-header">
               <h4>SDE Intern (Full Stack)</h4>
@@ -145,14 +130,36 @@
               <span class="timeline-date"><i class="fa-regular fa-calendar"></i> April 2026 – Present</span>
             </div>
             <ul class="timeline-bullets">
-              <li>Built and deployed <strong>Prahari</strong>, a production full-stack web application with secure
-                authentication, role-based access control (RBAC), and inventory management modules using PHP Laravel and
-                MySQL.</li>
-              <li>Gained hands-on experience with backend optimization, SMS notification gateway integration, and
-                production-grade system deployments.</li>
-              <li>Engineered clean RESTful endpoints and optimized database query execution for enhanced application
-                throughput.</li>
+              <li>Engineered and customized enterprise CRM workflows for the <strong>Amul Magic CRM</strong> ecosystem,
+                developing a specialized <strong>Report Panel</strong> and architecting new interactive tabs built
+                directly under strict client requirements.</li>
+              <li>Architected, developed, and deployed an AI-powered <strong>Manager Agent</strong> using <strong>Ollama (Llama 3.1)</strong>
+                local inference, integrated directly into the company's live Employee & Task Management system for real-time workload intelligence used daily by real team members.</li>
+              <li>Engineered data ingestion and communication pipelines for <strong>IoT & SCADA devices</strong>,
+                enabling live equipment monitoring, automated telemetry capture, and industrial sensor data
+                synchronization.</li>
             </ul>
+
+            <!-- Expandable Additional 3 Points -->
+            <div class="timeline-more-collapse" id="simpel-more-content">
+              <ul class="timeline-bullets" style="margin-top: 8px;">
+                <li>Architecting and developing a centralized <strong>Server Panel & Backend Infrastructure
+                    Management platform</strong> for real-time service monitoring, backend process control, and live
+                  server telemetry.</li>
+                <li>Built and deployed <strong>Prahari</strong>, a production full-stack journey tracking and inventory
+                  sentinel system with role-based access control (RBAC), live GPS tracking, and SMS notification
+                  gateways using PHP Laravel & MySQL.</li>
+                <li>Spearheaded technical <strong>SEO & Digital Performance Optimization</strong> for both
+                  <strong>Simpel</strong> and <strong>Mucept</strong> platforms, improving Google indexing, Core Web
+                  Vitals, page speed metrics, and organic search traffic.
+                </li>
+              </ul>
+            </div>
+
+            <button class="timeline-arrow-btn" id="simpel-toggle-btn" aria-expanded="false"
+              aria-controls="simpel-more-content" title="View more details" aria-label="Toggle more details">
+              <i class="fa-solid fa-chevron-down toggle-icon"></i>
+            </button>
           </div>
 
           <div class="timeline-card">
@@ -318,7 +325,7 @@
 
       <div class="projects-container">
 
-        <!-- Project 1: FraudLens (AuthentiX) -->
+        <!-- Project 1: FraudLens -->
         <div class="project-card" data-project-id="fraudlens" tabindex="0" role="button" aria-haspopup="dialog">
           <div>
             <div class="project-card-header">
@@ -326,7 +333,7 @@
                 <i class="fa-solid fa-shield-halved"></i>
               </div>
               <div class="project-links-direct">
-                <a href="https://github.com/snehaXgupta/authentix" target="_blank" class="project-btn-icon git-btn"
+                <a href="https://github.com/snehaXgupta/FraudLens" target="_blank" class="project-btn-icon git-btn"
                   aria-label="GitHub Repository" title="Inspect Code on GitHub" onclick="event.stopPropagation();"><i
                     class="fa-brands fa-github"></i></a>
               </div>
@@ -363,7 +370,10 @@
                 <i class="fa-solid fa-robot"></i>
               </div>
               <div class="project-links-direct">
-                <a href="https://github.com/snehaXgupta" target="_blank" class="project-btn-icon git-btn"
+                <a href="https://manager-agent-gedj.onrender.com/" target="_blank" class="project-btn-icon live-btn"
+                  aria-label="Live Deployed Application" title="Launch Live App (Render)" onclick="event.stopPropagation();"><i
+                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <a href="https://github.com/snehaXgupta/manager-agent" target="_blank" class="project-btn-icon git-btn"
                   aria-label="GitHub Repository" title="Inspect Code on GitHub" onclick="event.stopPropagation();"><i
                     class="fa-brands fa-github"></i></a>
               </div>
@@ -392,7 +402,7 @@
           </div>
         </div>
 
-        <!-- Project 3: Prahari (Adhway) -->
+        <!-- Project 3: Prahari -->
         <div class="project-card" data-project-id="prahari" tabindex="0" role="button" aria-haspopup="dialog">
           <div>
             <div class="project-card-header">
@@ -400,7 +410,7 @@
                 <i class="fa-solid fa-map-location-dot"></i>
               </div>
               <div class="project-links-direct">
-                <a href="https://github.com/snehaXgupta/adhway-prahari" target="_blank" class="project-btn-icon git-btn"
+                <a href="https://github.com/snehaXgupta/prahari-01" target="_blank" class="project-btn-icon git-btn"
                   aria-label="GitHub Repository" title="Inspect Code on GitHub" onclick="event.stopPropagation();"><i
                     class="fa-brands fa-github"></i></a>
               </div>
@@ -434,11 +444,6 @@
             <div class="project-card-header">
               <div class="project-icon-box">
                 <i class="fa-solid fa-cloud"></i>
-              </div>
-              <div class="project-links-direct">
-                <a href="https://github.com/snehaXgupta" target="_blank" class="project-btn-icon git-btn"
-                  aria-label="GitHub Repository" title="Inspect Code on GitHub" onclick="event.stopPropagation();"><i
-                    class="fa-brands fa-github"></i></a>
               </div>
             </div>
             <div class="project-card-body">
@@ -731,7 +736,10 @@
       </div>
 
       <div class="modal-footer">
-        <a href="#" target="_blank" class="btn-primary" id="modal-github-link">
+        <a href="#" target="_blank" class="btn-primary" id="modal-live-link" style="display: none;">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Launch Live App
+        </a>
+        <a href="#" target="_blank" class="btn-secondary" id="modal-github-link">
           <i class="fa-brands fa-github"></i> Inspect Source on GitHub
         </a>
         <button class="btn-secondary" id="modal-dismiss-btn">

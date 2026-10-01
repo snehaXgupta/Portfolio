@@ -134,8 +134,9 @@ def create_resume(output_path):
     t_exp1 = Table(exp1_data, colWidths=[380, 160])
     t_exp1.setStyle(TableStyle([('VALIGN', (0,0), (-1,-1), 'TOP'), ('BOTTOMPADDING', (0,0), (-1,-1), 1), ('TOPPADDING', (0,0), (-1,-1), 0), ('LEFTPADDING', (0,0), (-1,-1), 0), ('RIGHTPADDING', (0,0), (-1,-1), 0)]))
     story.append(t_exp1)
-    story.append(Paragraph("&bull; Built and deployed Prahari, a full-stack web app with secure auth, role-based access control and inventory management modules using PHP Laravel and MySQL.", bullet_style))
-    story.append(Paragraph("&bull; Gained hands-on experience with backend optimization, SMS notification integration and production-grade application development.", bullet_style))
+    story.append(Paragraph("&bull; <b>Amul Magic CRM & Report Panel:</b> Engineered custom enterprise CRM workflows and built client-tailored analytics report panels with custom functional tabs.", bullet_style))
+    story.append(Paragraph("&bull; <b>AI Manager Agent (Ollama):</b> Developed & deployed internal AI Manager Agent with Ollama/Llama 3.1 for employee/task management; built IoT/SCADA telemetry pipelines & Server Panel.", bullet_style))
+    story.append(Paragraph("&bull; <b>Prahari & SEO:</b> Deployed Prahari transit tracking & inventory system with RBAC/SMS gateways (Laravel/MySQL); optimized technical SEO for Simpel and Mucept.", bullet_style))
     story.append(Spacer(1, 3))
 
     exp2_data = [
